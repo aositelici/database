@@ -1,8 +1,8 @@
-DROP TABLE student;
-DROP TABLE class;
-DROP TABLE schedule;
-DROP TABLE course;
-DROP TABLE course_schedule;
-DROP DATABASE studatabase;
 
+DROP TABLE student;
+DROP TABLE course_schedule;
+DROP TABLE course;
+DROP TABLE schedule;
+DROP TABLE class;
+DROP DATABASE studatabase;
 SHOW DATABASES;
