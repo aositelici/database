@@ -1,8 +1,7 @@
-
+USE DATABASE studatabase;
 DROP TABLE student;
-DROP TABLE course_schedule;
+DROP TABLE stu_course;
 DROP TABLE course;
-DROP TABLE schedule;
 DROP TABLE class;
 DROP DATABASE studatabase;
 SHOW DATABASES;
