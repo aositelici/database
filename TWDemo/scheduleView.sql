@@ -1,4 +1,7 @@
-CREATE VIEW schedule AS SELECT stu_course.studentId AS studentId,student.name AS name,
-  course.name AS course FROM student,stu_course,course WHERE
-  stu_course.studentId = student.studentId AND stu_course.courseId = course.courseId;
-SELECT * FROM  schedule ;
+SELECT stu.name,GROUP_CONCAT(c.name SEPARATOR ' | ') AS course
+   FROM student stu
+   LEFT JOIN stu_course sc
+   ON stu.studentId = sc.studentId
+   LEFT JOIN course c
+   ON sc.courseId = c.courseId
+   GROUP BY stu.studentId;
