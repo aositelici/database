@@ -2,9 +2,9 @@ USE studatabase;
 DELIMITER //
 CREATE PROCEDURE selectCount()
 
-    SELECT classId,count(classId) as count FROM student  GROUP BY classId ;
-    SELECT classId,count(classId) as male_count FROM student where sex = 'male' GROUP BY classId ;
-    SELECT classId,count(classId) as male_count FROM student where sex = 'famale' GROUP BY classId ;
+    SELECT class.name as "班级",count(student.classId) as "学生人数" FROM student,class  where class.classId = student.classId GROUP BY student.classId ;
+    SELECT class.name as "班级",count(student.classId) as "男生人数" FROM student,class where  class.classId = student.classId and student.sex = 'male'  GROUP BY student.classId ;
+    SELECT class.name as "班级",count(student.classId) as "女生人数" FROM student,class where student.sex = 'famale' and class.classId = student.classId  GROUP BY student.classId ;
 
 //
 DELIMITER ;
