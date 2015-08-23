@@ -1,19 +1,11 @@
 USE studatabase;
 DELIMITER //
 CREATE PROCEDURE selectCount()
-BEGIN
-  DECLARE j INT DEFAULT 1;
-  WHILE j<6
-    DO
-    SELECT name FROM student WHERE classId=j;
-    SELECT FOUND_ROWS();
-    SELECT name FROM student WHERE classId=j AND sex='male';
-    SELECT FOUND_ROWS();
-    SELECT name FROM student WHERE classId=j AND sex='famale';
-    SELECT FOUND_ROWS();
-    SET j=j+1;
-  END WHILE;
-END;
+
+    SELECT classId,count(classId) as count FROM student  GROUP BY classId ;
+    SELECT classId,count(classId) as male_count FROM student where sex = 'male' GROUP BY classId ;
+    SELECT classId,count(classId) as male_count FROM student where sex = 'famale' GROUP BY classId ;
+
 //
 DELIMITER ;
 CALL selectCount();
